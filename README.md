@@ -3,7 +3,7 @@
 This repo implements [SSD (Single Shot MultiBox Detector)](https://arxiv.org/abs/1512.02325). The implementation is heavily influenced by the projects [ssd.pytorch](https://github.com/amdegroot/ssd.pytorch) and [Detectron](https://github.com/facebookresearch/Detectron).
 The design goal is modularity and extensibility.
 
-Currently, it has MobileNetV1, MobileNetV2, and VGG based SSD/SSD-Lite implementations. 
+Currently, it has MobileNetV1, MobileNetV2, MobileNet V3 and VGG based SSD/SSD-Lite implementations. 
 
 It also has out-of-box support for retraining on Google Open Images dataset.
 
@@ -272,8 +272,12 @@ python train_ssd.py --datasets ~/data/VOC0712/VOC2007/ ~/data/VOC0712/VOC2012/ -
 ```bash
 python eval_ssd.py --net vgg16-ssd  --dataset ~/data/VOC0712/test/VOC2007/ --trained_model models/vgg16-ssd-Epoch-115-Loss-2.819455094383535.pth --label_file models/voc-model-labels.txt
 ```
+#### Jetson Boards
+Convert the pth file to to ONNX format 
+Use detectnet for building the engine file.
+Use FP16/FP8 models (if your board supports) for better performance.
+Use input-output blobs which is mentioned in the script "onnx_export.py" 
 
-## TODO
-
-1. Resnet34 Based Model.
-2. BatchNorm Fusion.
+### Jetson performance over different SSD models
+![Arch Image](https://github.com/Ajithbalakrishnan/Jetson_Nano_Pytorch_Object_Detection/blob/main/jetson_nano-deep_learning_inference_perf-chart.png)
+Here we go
