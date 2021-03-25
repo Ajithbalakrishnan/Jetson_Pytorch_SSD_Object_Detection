@@ -273,11 +273,19 @@ python train_ssd.py --datasets ~/data/VOC0712/VOC2007/ ~/data/VOC0712/VOC2012/ -
 python eval_ssd.py --net vgg16-ssd  --dataset ~/data/VOC0712/test/VOC2007/ --trained_model models/vgg16-ssd-Epoch-115-Loss-2.819455094383535.pth --label_file models/voc-model-labels.txt
 ```
 #### Jetson Boards
+
 Convert the pth file to to ONNX format 
+
 Use detectnet for building the engine file.
+
 Use FP16/FP8 models (if your board supports) for better performance.
+
 Use input-output blobs which is mentioned in the script "onnx_export.py" 
 
+
 ### Jetson performance over different SSD models
+
 ![Arch Image](https://github.com/Ajithbalakrishnan/Jetson_Nano_Pytorch_Object_Detection/blob/main/jetson_nano-deep_learning_inference_perf-chart.png)
+
+
 Here we go
